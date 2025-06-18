@@ -1,25 +1,32 @@
-# 📟 Command Line Utility Hub
+# Command Line Utility Hub
 
 A simple command-line multi-tool utility built in C++ that offers:
-- 📊 Arithmetic operations  
-- 🔄 Unit conversions  
-- 🖥️ Number system conversions  
+- Arithmetic operations  
+- Unit conversions  
+- Number system conversions  
 
 ---
+## Tech Stack:
+- C++
 
-## 📌 Features
+## How to Run:
+1. Clone the repository.
+2. Compile using any C++ compiler.
+3. Run the executable file.
 
-### 🧮 Arithmetic Operations
+## Features
+
+### Arithmetic Operations
 - Addition
 - Subtraction
 - Multiplication
 - Division (with zero division handling)
 
-### 🔄 Unit Conversions
+### Unit Conversions
 - Celsius to Fahrenheit
 - Fahrenheit to Celsius
 
-### 🖥️ Number System Conversions
+### Number System Conversions
 - Decimal to Binary
 - Binary to Decimal
 
