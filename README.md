@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Command Line Utility Hub
 
 A simple command-line multi-tool utility built in C++ that offers:
@@ -32,7 +31,6 @@ A simple command-line multi-tool utility built in C++ that offers:
 - Binary to Decimal
 
 ---
-=======
 # Command Line Utility Hub
 
 A simple command-line multi-tool utility built in C++ that offers:
@@ -66,4 +64,3 @@ A simple command-line multi-tool utility built in C++ that offers:
 - Binary to Decimal
 
 ---
->>>>>>> d03e82a766dee8999b5b4435fd830ea98f671e39
