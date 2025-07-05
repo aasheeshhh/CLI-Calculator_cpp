@@ -13,6 +13,10 @@ void Celcius_to_Faraheniet();
 void Faraheniet_to_Celcius();
 void Decimal_to_Binary();
 void Binary_to_Decimal();
+void BMI_Calulator();
+void Age_Calulator();
+void Stopwatch_Timer();
+void Currency_Converter();
 
 int main(){
 
@@ -27,14 +31,26 @@ void Interface(){
 int number;
 cout<<"****Welcome to command line calulator****\n"; 
 cout<<R"(Select Category:
-1 = Airthmatic Operations
-2 = Conversions)"<<'\n';
+1 = Airthmatic Operations = (Addition,Substraction,Division & Multiplication)
+2 = Conversions = (Binary,Temperature & Currency)
+3 = BMI Calulator
+4 = Age Calulator
+5 = Stopwatch Timer)"<<'\n';
 cin>> number;
 if (number==1){
     Airthmatic_Operations_menu();  
 }
 else if(number==2){
     Conversion_menu();
+}
+else if(number==3){
+   BMI_Calulator();
+}
+else if(number==4){
+   Age_Calulator();
+}
+else if(number==5){
+   Stopwatch_Timer();
 }
 else{
     cout<<"Enter a valid number\n";
@@ -116,6 +132,7 @@ D = Binary to Decimal
 B = Decimal to Binary
 C = Celcius to Faraheniet
 F = Faraheniet to Celcius
+$ = Currency Converter
 X = Exit)"<<'\n';
 cin>>converter;
 
@@ -130,6 +147,9 @@ cin>>converter;
     }
     else if(converter == 'D' ||converter =='d'){
         Binary_to_Decimal();
+    }
+    else if(converter == '$'){
+        Currency_Converter();
     }
     else if(converter == 'X' |converter =='x'){
         Interface();   
@@ -201,3 +221,41 @@ void Binary_to_Decimal(){
 
     cout<<"Decimal of "<<Orignal_Bin_number<<" is "<<Decimal_number<<'\n';    
 }
+
+void BMI_Calulator(){
+    double weight;
+    double height;
+    double BMI;
+
+    cout<<"Enter Weight in Kg: \n";
+    cin>>weight;
+
+    cout<<"Enter height in Meter: \n";
+    cin>>height;
+
+    BMI = weight/(height*height);
+
+    if(BMI <= 18.5){
+        cout<<"Your Body Mass Index is: "<<BMI<<'\n';
+        cout<<"You are Underweight: \n";
+    }  
+    else if(BMI <= 24.9){
+        cout<<"Your Body Mass Index is: "<<BMI<<'\n';
+        cout<<"You are Healthy STAY FIT!!\n";
+    }
+    else if(BMI <= 29.9){
+        cout<<"Your Body Mass Index is: "<<BMI<<'\n';
+        cout<<"You are Overweight: \n";
+    }
+    else{
+        cout<<"Your Body Mass Index is: "<<BMI<<'\n';
+        cout<<"You are Suffering From Obesity: \n";
+        cout<<"PLEASE CONSULT A DOCTOR!!\n";
+    }
+}
+
+void Age_Calulator(){}
+
+void Stopwatch_Timer(){}
+
+void Currency_Converter(){}
