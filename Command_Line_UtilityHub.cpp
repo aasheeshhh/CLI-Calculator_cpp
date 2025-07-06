@@ -1,5 +1,6 @@
 // 16 june 2025
 #include <iostream>
+#include <ctime>
 using namespace std;
 
 void Interface();
@@ -254,8 +255,163 @@ void BMI_Calulator(){
     }
 }
 
-void Age_Calulator(){}
+void Age_Calulator(){
+    int birthYear, birthMonth, birthDay;
+    int currentYear, currentMonth, currentDay;
+
+    // Get current system date
+    time_t now = time(0);
+    tm *ltm = localtime(&now);
+
+    currentYear = 1900 + ltm->tm_year;
+    currentMonth = 1 + ltm->tm_mon;
+    currentDay = ltm->tm_mday;
+
+    cout << "**** Welcome to Age Calculator ****\n";
+
+    // Birth Year
+    cout << "Enter your Birth Year: ";
+    cin >> birthYear;
+    if (cin.fail() || birthYear <= 0 || birthYear > currentYear) {
+        cin.clear();
+        cin.ignore(10000, '\n');
+        cout << "Invalid birth year entered!\n";
+        return;
+    }
+
+    // Birth Month
+    cout << "Enter your Birth Month (1-12): ";
+    cin >> birthMonth;
+    if (cin.fail() || birthMonth < 1 || birthMonth > 12) {
+        cin.clear();
+        cin.ignore(10000, '\n');
+        cout << "Invalid birth month entered!\n";
+        return;
+    }
+
+    // Birth Day
+    cout << "Enter your Birth Day (1-31): ";
+    cin >> birthDay;
+    if (cin.fail() || birthDay < 1 || birthDay > 31) {
+        cin.clear();
+        cin.ignore(10000, '\n');
+        cout << "Invalid birth day entered!\n";
+        return;
+    }
+
+    // Calculate age
+    int ageYears = currentYear - birthYear;
+    int ageMonths = currentMonth - birthMonth;
+    int ageDays = currentDay - birthDay;
+
+    // Adjust for negative days
+    if (ageDays < 0) {
+        ageDays += 30;  // Approximation
+        ageMonths--;
+    }
+
+    // Adjust for negative months
+    if (ageMonths < 0) {
+        ageMonths += 12;
+        ageYears--;
+    }
+
+    // Display result
+    cout<<"\nYour Age is: " 
+        << ageYears << " years, "
+        << ageMonths << " months, and "
+        << ageDays << " days.\n";
+}
 
 void Stopwatch_Timer(){}
 
-void Currency_Converter(){}
+void Currency_Converter(){
+    double amount,New_Amount;
+    char currency,converter;
+
+    cout<<"****Welcome to Currency Converter****\n";
+    cout<<"FIXED RATES!! (Latest update JULY 2025)\n";
+    cout<<"Enter Amount: \n";
+    cin>>amount;
+cout<<R"(In which Currency The Amount is:
+EURO = E
+INR = I
+UAE = D
+USD = $)"<<'\n';
+   cin>>currency;
+   currency = toupper(currency);
+
+
+cout<<R"(In which Currency You want to Convert:
+EURO = E
+INR = I
+UAE = D
+USD = $)"<<'\n';
+   cin>>converter;
+   converter = toupper(converter);
+
+    if(currency == converter){
+        cout<<"Both selected currencies are the same. No conversion needed.\n";
+        return;
+    }
+
+    // INR conversions
+    else if(currency == 'I' && converter == '$'){
+        New_Amount = amount * 0.012;
+        cout<<amount<<" INR is "<<New_Amount<<" USD\n";
+    }
+    else if(currency == 'I' && converter == 'E'){
+        New_Amount = amount * 0.011;
+        cout<<amount<<" INR is "<<New_Amount<<" EURO\n";
+    }
+    else if(currency == 'I' && converter == 'D'){
+        New_Amount = amount * 0.044;
+        cout<<amount<<" INR is "<<New_Amount<<" AED\n";
+    }
+
+    // USD conversions
+    else if(currency == '$' && converter == 'I'){
+        New_Amount = amount * 83.5;
+        cout<<amount<<" USD is "<<New_Amount<<" INR\n";
+    }
+    else if(currency == '$' && converter == 'E'){
+        New_Amount = amount * 0.91;
+        cout<<amount<<" USD is "<<New_Amount<<" EURO\n";
+    }
+    else if(currency == '$' && converter == 'D'){
+        New_Amount = amount * 3.67;
+        cout<<amount<<" USD is "<<New_Amount<<" AED\n";
+    }
+
+    // EURO conversions
+    else if(currency == 'E' && converter == 'I'){
+        New_Amount = amount * 91.8;
+        cout<<amount<<" EURO is "<<New_Amount<<" INR\n";
+    }
+    else if(currency == 'E' && converter == '$'){
+        New_Amount = amount * 1.09;
+        cout<<amount<<" EURO is "<<New_Amount<<" USD\n";
+    }
+    else if(currency == 'E' && converter == 'D'){
+        New_Amount = amount * 4.01;
+        cout<<amount<<" EURO is "<<New_Amount<<" AED\n";
+    }
+
+    // AED conversions
+    else if(currency == 'D' && converter == 'I'){
+        New_Amount = amount * 22.27;
+        cout<<amount<<" AED is "<<New_Amount<<" INR\n";
+    }
+    else if(currency == 'D' && converter == '$'){
+        New_Amount = amount * 0.27;
+        cout<<amount<<" AED is "<<New_Amount<<" USD\n";
+    }
+    else if(currency == 'D' && converter == 'E'){
+        New_Amount = amount * 0.25;
+        cout<<amount<<" AED is "<<New_Amount<<" EURO\n";
+    }
+
+    else{
+        cout<<"Invalid currency option entered.\n";
+    }
+}
